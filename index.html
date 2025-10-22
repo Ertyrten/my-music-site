@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBSOMO - My Favorite Tracks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Анімації --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Загальні стилі --- */
+        body {
+            background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden; /* Запобігає горизонтальній прокрутці */
+        }
+
+        /* --- Стилізація скролбару --- */
+        body::-webkit-scrollbar { width: 10px; }
+        body::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
+        body::-webkit-scrollbar-thumb { background-color: #4d4d4d; border-radius: 20px; border: 2px solid transparent; }
+
+        /* --- Контейнер зі скляним ефектом --- */
+        .container {
+            max-width: 1300px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: rgba(18, 18, 18, 0.8);
+            border-radius: 15px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Заголовок з новим шрифтом та анімацією --- */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+        .header p {
+            font-size: 1.2rem;
+            color: #b3b3b3;
+        }
+
+        /* --- Сітка для треків --- */
+        .track-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* --- Плеєр з анімацією появи --- */
+        .track-player {
+            opacity: 0; /* Початковий стан - невидимий */
+            transform: translateY(30px); /* Початкове положення - трохи нижче */
+            animation: fadeInUp 0.8s ease-out forwards;
+            transition: transform 0.3s ease;
+        }
+        
+        .track-player:hover {
+            transform: scale(1.04) !important; /* !important, щоб перевизначити анімацію */
+        }
+        
+        .track-player iframe {
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+            width: 100%;
+        }
+
+        /* --- Затримка анімації для кожного плеєра --- */
+        .track-player:nth-child(1) { animation-delay: 0.2s; }
+        .track-player:nth-child(2) { animation-delay: 0.3s; }
+        .track-player:nth-child(3) { animation-delay: 0.4s; }
+        .track-player:nth-child(4) { animation-delay: 0.5s; }
+        .track-player:nth-child(5) { animation-delay: 0.6s; }
+        .track-player:nth-child(6) { animation-delay: 0.7s; }
+        .track-player:nth-child(7) { animation-delay: 0.8s; }
+        .track-player:nth-child(8) { animation-delay: 0.9s; }
+        .track-player:nth-child(9) { animation-delay: 1.0s; }
+        .track-player:nth-child(10) { animation-delay: 1.1s; }
+        .track-player:nth-child(11) { animation-delay: 1.2s; }
+        .track-player:nth-child(12) { animation-delay: 1.3s; }
+        .track-player:nth-child(13) { animation-delay: 1.4s; }
+        .track-player:nth-child(14) { animation-delay: 1.5s; }
+        .track-player:nth-child(15) { animation-delay: 1.6s; }
+        .track-player:nth-child(16) { animation-delay: 1.7s; }
+        .track-player:nth-child(17) { animation-delay: 1.8s; }
+        .track-player:nth-child(18) { animation-delay: 1.9s; }
+        .track-player:nth-child(19) { animation-delay: 2.0s; }
+        .track-player:nth-child(20) { animation-delay: 2.1s; }
+        .track-player:nth-child(21) { animation-delay: 2.2s; }
+        .track-player:nth-child(22) { animation-delay: 2.3s; }
+        .track-player:nth-child(23) { animation-delay: 2.4s; }
+        .track-player:nth-child(24) { animation-delay: 2.5s; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>The Best Songs On My Opinion</h1>
+            <p>(TBSOMO)</p>
+        </header>
+
+        <div class="track-grid">
+
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0nbXyq5TXYPCO7pr3N8S4I?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3eekarcy7kvN4yt5ZFzltW?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6gi6y1xwmVszDWkUqab1qw?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/42VsgItocQwOQC3XWZ8JNA?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4S8d14HvHb70ImctNgVzQQ?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6REbwUNlppTfcnV4d4ZoZi?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0c0YHn3DIQLl1opsQDd9kO?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6AI3ezQ4o3HUoP6Dhudph3?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3ZaEs1O8BG581qYPHpQ8d6?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2t8yVaLvJ0RenpXUIAC52d?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0eaVIYo2zeOaGJeqZ5TwYz?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5P03xImM2uFukzoty7NDw7?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0TlLq3lA83rQOYtrqBqSct?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7fBv7CLKzipRk6EC6TWHOB?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7bEKga8eFygrhFWB5KTl3A?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Gg1gjgKi2AK4e0qzsR7sd?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2XHzzp1j4IfTNp1FTn7YFg?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5vGLcdRuSbUhD8ScwsGSdA?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3a1lNhkSLSkpJE4MSHpDu9?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2tudvzsrR56uom6smgOcSf?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3wGXyJGsCf1myH5MooQIqE?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6b5fPdo7XNZrwcTASG1hK7?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1rBjexQsgqXpsS2BrCxaDX?utm_source=generator" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            <div class="track-player"><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4oxDHyzQF7QgUBtm9AT3fH?utm_source=generator&theme=0" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
